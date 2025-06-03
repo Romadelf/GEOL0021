@@ -43,7 +43,7 @@ print(data.describe())
 # 1) Résistance:
 binsR = np.logspace(
     start=np.log10(min(data[labelERT])),
-    stop=np.log10(np.quantile(data[labelERT], 0.9)),
+    stop=np.log10(max(data[labelERT])),
     num=numberOfBarsInHistogram + 1)
 hist1 = data.hist(
     column=labelERT,
