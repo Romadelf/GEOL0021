@@ -33,7 +33,7 @@ data = pd.read_csv(
         labelERT, 'Res. Error (Ohm)',
         labelIP, 'IP Error (V/V)'],
     index_col=False,
-    skipfooter=0,  # Nombre de lignes ignorées en fin de fichier si valeurs nulles ou plus d'une ligne vide
+    skipfooter=0,  # Nombre de lignes vides ou nulles à ignorer en fin de fichier
     engine='python')
 nbInit = len(data.index)
 print(f'Initial number of values: {nbInit}')
