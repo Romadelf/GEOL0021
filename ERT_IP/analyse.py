@@ -9,6 +9,9 @@ import pandas as pd
 import numpy as np
 from matplotlib import pyplot
 
+labelERT = 'R (Ohm)'
+labelIP = 'IP (mV/V)'
+
 # Importer le jeu de données via pandas:
 #
 #   - Si le jeux de données contient ERT et IP et que le jeu contient des estimations d'erreur,
@@ -24,8 +27,8 @@ data = pd.read_csv(
     skiprows=36, 
     names= [
         'a', 'b', 'm', 'n',
-        'R (Ohm)', 'Res. Error (Ohm)',
-        'IP (mV/V)', 'IP Error (mV/V)'],
+        labelERT, 'Res. Error (Ohm)',
+        labelIP, 'IP Error (mV/V)'],
     index_col=False,
     skipfooter=0,
     engine='python')
@@ -37,17 +40,17 @@ print(data.describe())
 
 # 1) Résistance: 
 binsR = np.logspace(
-    start=np.log(min(data['R (Ohm)'])),
-    stop=np.log(np.quantile(data['R (Ohm)'], 0.9)),
+    start=np.log(min(data[labelERT])),
+    stop=np.log(np.quantile(data[labelERT], 0.9)),
     num=20)
 hist1 = data.hist(
-    column=['R (Ohm)'],
+    column=[labelERT],
     bins=binsR,
     density=False)
 
 # 2) IP:
 hist2 = data.hist(
-    column=['IP (mV/V)'],
+    column=[labelIP],
     density=False)
 
 pyplot.show()
