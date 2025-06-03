@@ -8,9 +8,15 @@ Created on Tue Feb 14 13:46:42 2023
 import pandas as pd
 import numpy as np
 from matplotlib import pyplot
+
 # Importer le jeu de données via pandas:
-#   Si le jeux de données contient ERT et IP et que le jeu contient des estimations d'erreur,
+#
+#   - Si le jeux de données contient ERT et IP et que le jeu contient des estimations d'erreur,
 #   les paramètres a entrer sont ceux utilisés ci-dessous.
+#
+#   - Si le jeux de données contient moins de données,
+#   il faut ajuster les paramètres skiprows et names en fonction.
+#
 data = pd.read_csv(
     './B52_DDN6_TP.ohm',
     delimiter='\t',
@@ -23,11 +29,12 @@ data = pd.read_csv(
     index_col=False,
     skipfooter=0,
     engine='python')
-# Si le jeux de données contient moins de données, il faut ajuster les paramètres skiprows et names en fonction.
 nbInit = len(data.index)
 print('Initial number of values: {}'.format(nbInit))
 print(data.describe())
+
 # Montrer les histogrammes:
+
 # 1) Résistance: 
 binsR = np.logspace(
     start=np.log(min(data['R (Ohm)'])),
