@@ -22,7 +22,7 @@ print(data.describe())
 # Montrer les histogrammes:
 # 1) Résistance: 
 binsR = np.logspace(start=np.log(min(data['R (Ohm)'])), stop=np.log(np.quantile(data['R (Ohm)'],0.9)),num=20)
-hist1 = data.hist(column=['R (Ohm)'], bins=binsR, density=True)
+hist1 = data.hist(column=['R (Ohm)'], bins=binsR, density=False)
 # 2) IP:
-hist2 = data.hist(column=['IP (mV/V)'], density=True)
+hist2 = data.hist(column=['IP (mV/V)'], density=False)
 pyplot.show()
