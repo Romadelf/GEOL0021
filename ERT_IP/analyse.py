@@ -46,13 +46,13 @@ binsR = np.logspace(
     stop=np.log(np.quantile(data[labelERT], 0.9)),
     num=numberOfBarsInHistogram + 1)
 hist1 = data.hist(
-    column=[labelERT],
+    column=labelERT,
     bins=binsR,
     density=False)
 
 # 2) IP:
 hist2 = data.hist(
-    column=[labelIP],
+    column=labelIP,
     density=False)
 
 pyplot.show()
