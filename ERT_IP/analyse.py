@@ -30,7 +30,7 @@ data = pd.read_csv(
     skipfooter=0,
     engine='python')
 nbInit = len(data.index)
-print('Initial number of values: {}'.format(nbInit))
+print(f'Initial number of values: {nbInit}')
 print(data.describe())
 
 # Montrer les histogrammes:
