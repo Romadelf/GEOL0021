@@ -25,13 +25,13 @@ data = pd.read_csv(
     fullFilenamePath,
     delimiter='\t',
     header=None,
-    skiprows=36, 
+    skiprows=36,  # Doit correspondre au nombre de lignes à skipper au début du fichier .ohm
     names= [
         'a', 'b', 'm', 'n',
         labelERT, 'Res. Error (Ohm)',
         labelIP, 'IP Error (mV/V)'],
     index_col=False,
-    skipfooter=0,
+    skipfooter=0,  # Nombre de lignes ignorée en fin de fichier si valeurs nulles ou plus d'une ligne vide
     engine='python')
 nbInit = len(data.index)
 print(f'Initial number of values: {nbInit}')
@@ -39,7 +39,7 @@ print(data.describe())
 
 # Montrer les histogrammes:
 
-# 1) Résistance: 
+# 1) Résistance:
 binsR = np.logspace(
     start=np.log(min(data[labelERT])),
     stop=np.log(np.quantile(data[labelERT], 0.9)),
