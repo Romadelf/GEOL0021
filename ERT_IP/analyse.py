@@ -27,13 +27,13 @@ data = pd.read_csv(
     fullFilenamePath,
     delimiter='\t',
     header=None,
-    skiprows=36,  # Doit correspondre au nombre de lignes à skipper au début du fichier .ohm
+    skiprows=36,  # Doit correspondre au nombre de lignes à skipper au début du fichier de données
     names= [
         'a', 'b', 'm', 'n',
         labelERT, 'Res. Error (Ohm)',
         labelIP, 'IP Error (V/V)'],
     index_col=False,
-    skipfooter=0,  # Nombre de lignes ignorée en fin de fichier si valeurs nulles ou plus d'une ligne vide
+    skipfooter=0,  # Nombre de lignes ignorées en fin de fichier si valeurs nulles ou plus d'une ligne vide
     engine='python')
 nbInit = len(data.index)
 print(f'Initial number of values: {nbInit}')
