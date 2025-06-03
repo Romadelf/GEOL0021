@@ -12,6 +12,7 @@ from matplotlib import pyplot
 fullFilenamePath = './B52_DDN6_TP.ohm'  # Chemin depuis ce code vers le fichier des données
 labelERT = 'R (Ohm)'
 labelIP = 'IP (mV/V)'
+numberOfBarsInHistogram = 20
 
 # Importer le jeu de données via pandas:
 #
@@ -43,7 +44,7 @@ print(data.describe())
 binsR = np.logspace(
     start=np.log(min(data[labelERT])),
     stop=np.log(np.quantile(data[labelERT], 0.9)),
-    num=20)
+    num=numberOfBarsInHistogram + 1)
 hist1 = data.hist(
     column=[labelERT],
     bins=binsR,
