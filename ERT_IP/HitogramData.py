@@ -29,11 +29,7 @@ data = pd.read_csv(
     header=None,
     skiprows=15,  # Doit correspondre au nombre de lignes à skipper au début du fichier de données
     names= [
-        'Nb. Electrodes',
-        'A(x)', 'A(y)',
-        'B(x)', 'B(y)',
-        'M(x)', 'M(y)',
-        'N(x)', 'N(y)',
+        'Nb. Electrodes', 'A(x)', 'A(y)', 'B(x)', 'B(y)', 'M(x)', 'M(y)', 'N(x)', 'N(y)',
         labelERT, 'Res. Error (Ohm)',
         labelIP, 'IP Error (mV/V)'],
     index_col=False,
