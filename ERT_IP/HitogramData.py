@@ -9,11 +9,11 @@ import pandas as pd
 import numpy as np
 from matplotlib import pyplot
 
-fullFilenamePath = './data/B52_DDN6_TP.ohm'  # Chemin depuis ce code vers le fichier des données
+fullFilenamePath = './data/B52_Gradient7.dat'  # Chemin depuis ce code vers le fichier des données
 numberOfBarsInHistogram = 20
 
 labelERT = 'R (Ohm)'
-labelIP = 'IP (V/V)'
+labelIP = 'IP (mV/V)'
 
 # Importer le jeu de données via pandas:
 #
@@ -27,13 +27,17 @@ data = pd.read_csv(
     fullFilenamePath,
     delimiter='\t',
     header=None,
-    skiprows=36,  # Doit correspondre au nombre de lignes à skipper au début du fichier de données
+    skiprows=15,  # Doit correspondre au nombre de lignes à skipper au début du fichier de données
     names= [
-        'a', 'b', 'm', 'n',
+        'Nb. Electrodes',
+        'A(x)', 'A(y)',
+        'B(x)', 'B(y)',
+        'M(x)', 'M(y)',
+        'N(x)', 'N(y)',
         labelERT, 'Res. Error (Ohm)',
-        labelIP, 'IP Error (V/V)'],
+        labelIP, 'IP Error (mV/V)'],
     index_col=False,
-    skipfooter=0,  # Nombre de lignes ignorées en fin de fichier si valeurs nulles ou plus d'une ligne vide
+    skipfooter=5,  # Nombre de lignes ignorées en fin de fichier si valeurs nulles ou plus d'une ligne vide
     engine='python')
 nbInit = len(data.index)
 print(f'Initial number of values: {nbInit}')
