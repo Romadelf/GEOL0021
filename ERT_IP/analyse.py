@@ -9,7 +9,7 @@ import pandas as pd
 import numpy as np
 from matplotlib import pyplot
 
-fullFilenamePath = './B52_DDN6_TP.ohm'  # Chemin depuis ce code vers le fichier des données
+fullFilenamePath = './data/B52_DDN6_TP.ohm'  # Chemin depuis ce code vers le fichier des données
 numberOfBarsInHistogram = 20
 
 labelERT = 'R (Ohm)'
