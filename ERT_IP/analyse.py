@@ -13,7 +13,7 @@ fullFilenamePath = './data/B52_DDN6_TP.ohm'  # Chemin depuis ce code vers le fic
 numberOfBarsInHistogram = 20
 
 labelERT = 'R (Ohm)'
-labelIP = 'IP (mV/V)'
+labelIP = 'IP (V/V)'
 
 # Importer le jeu de données via pandas:
 #
@@ -31,7 +31,7 @@ data = pd.read_csv(
     names= [
         'a', 'b', 'm', 'n',
         labelERT, 'Res. Error (Ohm)',
-        labelIP, 'IP Error (mV/V)'],
+        labelIP, 'IP Error (V/V)'],
     index_col=False,
     skipfooter=0,  # Nombre de lignes ignorée en fin de fichier si valeurs nulles ou plus d'une ligne vide
     engine='python')
