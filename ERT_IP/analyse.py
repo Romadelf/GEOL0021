@@ -48,7 +48,8 @@ binsR = np.logspace(
 hist1 = data.hist(
     column=labelERT,
     bins=binsR,
-    density=False)
+    density=False)  # Nécéssairement False en log
+pyplot.xscale('log')
 
 # 2) IP:
 hist2 = data.hist(
