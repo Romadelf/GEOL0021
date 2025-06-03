@@ -9,6 +9,7 @@ import pandas as pd
 import numpy as np
 from matplotlib import pyplot
 
+fullFilenamePath = './B52_DDN6_TP.ohm'  # Chemin depuis ce code vers le fichier des données
 labelERT = 'R (Ohm)'
 labelIP = 'IP (mV/V)'
 
@@ -21,7 +22,7 @@ labelIP = 'IP (mV/V)'
 #   il faut ajuster les paramètres skiprows et names en fonction.
 #
 data = pd.read_csv(
-    './B52_DDN6_TP.ohm',
+    fullFilenamePath,
     delimiter='\t',
     header=None,
     skiprows=36, 
