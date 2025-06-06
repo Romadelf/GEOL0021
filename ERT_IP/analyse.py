@@ -49,7 +49,7 @@ binsR = np.logspace(
 hist1 = data.hist(
     column=labelERT,
     bins=binsR,
-    density=False)  # Nécéssairement False en log
+    density=False)  # Nécéssairement False quand axe x en log
 pyplot.xscale('log')
 
 # 2) IP:
